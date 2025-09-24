@@ -57,6 +57,9 @@ digital-twin-bundle:
         # No templating possible, need to hardcode string, or set it via property e.g.,
         # helm install <release-name> charts/tx-data-provider --set digital-twin-bundle.digital-twin-registry.registry.dataSource.url=jdbc:postgresql://<release-name>-dtr-postgresql:5432/dtr
         url: "jdbc:postgresql://dtr-postgresql:5432/dtr"
+      ingress:
+        enabled: true
+        urlPrefix: /semantics/registry
   postgresql:
     fullnameOverride: "dtr-postgresql"
 
