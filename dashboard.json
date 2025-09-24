@@ -91,7 +91,8 @@
           },
           "direction": "backward",
           "editorMode": "builder",
-          "expr": "count by(state, service_name) (rate({service_name=~\".*edc.*\"} |~ `.*\\[CONSUMER\\] ContractNegotiation ([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}) is now in state ([A-Z].*)\\.` | json message=\"message\" | regexp `.*(?P<ID>[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}) is now in state (?P<state>[A-Z].*)\\.` [$__auto]))",
+          "expr": "count by(service_name, state) (rate({service_name=~\".*edc.*\"} |~ `.*\\[CONSUMER\\] ContractNegotiation ([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}) is now in state ([A-Z].*)\\.` | json message=\"message\" | regexp `.*(?P<ID>[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}) is now in state (?P<state>[A-Z].*)\\.` [$__auto]))",
+          "legendFormat": "{{state}} - {{service_name}}",
           "queryType": "range",
           "refId": "A"
         }
@@ -411,6 +412,6 @@
   "timezone": "browser",
   "title": "EDC Dashboard",
   "uid": "eexjm9h3hzb40f",
-  "version": 6,
+  "version": 2,
   "weekStart": ""
 }
